@@ -6,6 +6,7 @@ import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.String.format;
 
@@ -58,7 +59,19 @@ public class Main {
         makeDeck(deck, "Diamonds");
         makeDeck(deck, "Clubs");
 
-        System.out.println(deck.get(1).value + " of " + deck.get(1).suit);
+        List<Card> hand = new ArrayList<Card>();
+        int numberOfCards = 56;
+        for (int i = 0; i < 5; i++) {
+            int rnd = new Random().nextInt(numberOfCards) + 1;
+            hand.add(deck.get(rnd));
+            deck.remove(deck.get(rnd));
+            numberOfCards -= 1;
+        }
+
+
+        System.out.println(hand);
+        System.out.println("Testing...");
+//        System.out.println(deck.get(1).value + " of " + deck.get(1).suit);
     }
 
 }
