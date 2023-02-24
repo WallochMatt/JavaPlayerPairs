@@ -61,10 +61,10 @@ public class Main {
         Player tester = new Player("p1", deck);
         Player tester2 = new Player("p2", deck);
 
+        tester.checkForPairs();
+//        tester2.checkForPairs();
 
-//        System.out.println(hand);
         System.out.println("Testing...");
-//        System.out.println(deck.get(1).value + " of " + deck.get(1).suit);
     }
 
 }
