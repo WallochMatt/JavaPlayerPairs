@@ -4,6 +4,9 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.String.format;
 
 public class Main {
@@ -28,31 +31,34 @@ public class Main {
 //
 //    };
 
-    public static void makeDeck(ListMultimap<String, String> deck, String currentSuit)
+
+
+    public static  void makeDeck(List<Card> deck, String currentSuit)
     {
         for (int i = 0; i < 10; i++){
             String newValue = String.format("%s", i + 1);
-            deck.put(currentSuit, newValue);
+            deck.add(new Card(currentSuit, newValue));
         }
-        deck.put(currentSuit, "Jack");
-        deck.put(currentSuit, "Queen");
-        deck.put(currentSuit, "King");
-        deck.put(currentSuit, "Ace");
-    };
+        deck.add(new Card(currentSuit, "Jack"));
+        deck.add(new Card(currentSuit, "Queen"));
+        deck.add(new Card(currentSuit, "King"));
+        deck.add(new Card(currentSuit, "Ace"));
 
+    }
 
 
     public static void main(String[] args) {
         //call
         //runGame();
 
-        ListMultimap<String, String> deck = ArrayListMultimap.create();
+        List<Card> deck = new ArrayList<Card>();
+
         makeDeck(deck, "Spades");
         makeDeck(deck, "Hearts");
         makeDeck(deck, "Diamonds");
         makeDeck(deck, "Clubs");
 
-        System.out.println(deck);
+        System.out.println(deck.get(1).value + " of " + deck.get(1).suit);
     }
 
 }
