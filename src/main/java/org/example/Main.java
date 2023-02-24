@@ -53,23 +53,16 @@ public class Main {
         //runGame();
 
         List<Card> deck = new ArrayList<Card>();
-
         makeDeck(deck, "Spades");
         makeDeck(deck, "Hearts");
         makeDeck(deck, "Diamonds");
         makeDeck(deck, "Clubs");
 
-        List<Card> hand = new ArrayList<Card>();
-        int numberOfCards = 56;
-        for (int i = 0; i < 5; i++) {
-            int rnd = new Random().nextInt(numberOfCards) + 1;
-            hand.add(deck.get(rnd));
-            deck.remove(deck.get(rnd));
-            numberOfCards -= 1;
-        }
+        Player tester = new Player("p1", deck);
+        Player tester2 = new Player("p2", deck);
 
 
-        System.out.println(hand);
+//        System.out.println(hand);
         System.out.println("Testing...");
 //        System.out.println(deck.get(1).value + " of " + deck.get(1).suit);
     }
