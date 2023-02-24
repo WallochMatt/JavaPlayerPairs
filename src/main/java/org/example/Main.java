@@ -28,21 +28,29 @@ public class Main {
 //
 //    };
 
-
+    public static void makeDeck(ListMultimap<String, String> deck, String currentSuit)
+    {
+        for (int i = 0; i < 10; i++){
+            String newValue = String.format("%s", i + 1);
+            deck.put(currentSuit, newValue);
+        }
+        deck.put(currentSuit, "Jack");
+        deck.put(currentSuit, "Queen");
+        deck.put(currentSuit, "King");
+        deck.put(currentSuit, "Ace");
+    };
 
 
 
     public static void main(String[] args) {
         //call
-//        runGame();
-//        Card card_1 = new Card("Spades", "Ace");
-//        System.out.println(card_1.value  + " of " + card_1.suit);
-        ListMultimap<String, String> deck = ArrayListMultimap.create();
+        //runGame();
 
-        for (int i = 0; i < 10; i++){
-            String newValue = String.format("%s", i + 1);
-            deck.put("Spades", newValue);
-        }
+        ListMultimap<String, String> deck = ArrayListMultimap.create();
+        makeDeck(deck, "Spades");
+        makeDeck(deck, "Hearts");
+        makeDeck(deck, "Diamonds");
+        makeDeck(deck, "Clubs");
 
         System.out.println(deck);
     }
