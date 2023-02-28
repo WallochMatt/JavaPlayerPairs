@@ -23,25 +23,26 @@ public class Player {
         return handInMaking;
     }
 
-    public Set<Card> checkForPairs()
+    public void checkForPairs()
     {
-        int pairCount = 0;
+        int pairCount = hand.size();
         final Set<Card> setToReturn = new HashSet<>();
-        final Set<Card> set1 = new HashSet<>();
+        final Set<String> copies = new HashSet<>();
 
         hand.forEach(i -> {
             System.out.println(i.value + " of " + i.suit);
+            copies.add(i.value);
         });
 
-//        for (Card myCard : hand) {
-//            if (!set1.add(myCard)) {
-//                setToReturn.add(myCard);
-//            }
-//        }
-        //referencing forum for Set
-   // https://stackoverflow.com/questions/7414667/identify-duplicates-in-a-list
+        int totalCopies = (int) copies.stream().distinct().count();
+        System.out.println(totalCopies);
 
-        return setToReturn;
+        int foundPairs = pairCount - totalCopies;
+
+
+        System.out.println(foundPairs + " Pairs Found!");
+
+
     }
 
 }
