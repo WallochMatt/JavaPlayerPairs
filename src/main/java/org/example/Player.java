@@ -5,6 +5,7 @@ import java.util.*;
 public class Player {
     public String name;
     public List<Card> hand;
+    public int pairs;
 
     public Player(String name, List<Card> deck) {
         this.name = name;
@@ -15,7 +16,7 @@ public class Player {
         List<Card> handInMaking = new ArrayList<Card>();
         int numberOfCards = deck.size();
         for (int i = 0; i < 5; i++) {
-            int rnd = new Random().nextInt(numberOfCards) + 1;
+            int rnd = new Random().nextInt(numberOfCards);
             handInMaking.add(deck.get(rnd));
             deck.remove(deck.get(rnd));
             numberOfCards -= 1;
@@ -26,23 +27,20 @@ public class Player {
     public void checkForPairs()
     {
         int pairCount = hand.size();
-        final Set<Card> setToReturn = new HashSet<>();
         final Set<String> copies = new HashSet<>();
 
+        System.out.println(name + "'s Cards: ");
         hand.forEach(i -> {
             System.out.println(i.value + " of " + i.suit);
             copies.add(i.value);
         });
 
         int totalCopies = (int) copies.stream().distinct().count();
-        System.out.println(totalCopies);
+        pairs = pairCount - totalCopies;
 
-        int foundPairs = pairCount - totalCopies;
-
-
-        System.out.println(foundPairs + " Pairs Found!");
-
-
+        System.out.println(pairs + " Pairs Found!");
     }
+
+    //compare pairs function here
 
 }

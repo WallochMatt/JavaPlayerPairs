@@ -1,14 +1,6 @@
 package org.example;
-
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Multimap;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
-import static java.lang.String.format;
 
 public class Main {
     //create
@@ -30,7 +22,7 @@ public class Main {
 //        int amountOfPlayers = 3;
 //        int[] players = [];
 //
-//    };
+//    }; could instantiate as many players as the user wants, and ask/apply the names
 
 
 
@@ -63,8 +55,8 @@ public class Main {
 
         tester.checkForPairs();
 //        tester2.checkForPairs();
+//        System.out.println(tester.pairs); can access a player's pairs through its memvar now
 
-        System.out.println("Testing...");
     }
 
 }
