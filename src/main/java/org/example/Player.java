@@ -9,11 +9,13 @@ public class Player {
     public int pairs;
     public int playerScore;
 
+    //Constructor
     public Player(String name) {
         this.name = name;
     }
 
-    public void dealHand(List<Card> deck) {
+    public void dealHand(List<Card> deck)
+    {
         List<Card> handInMaking = new ArrayList<Card>();
         int numberOfCards = deck.size();
         for (int i = 0; i < 5; i++) {

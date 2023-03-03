@@ -65,6 +65,20 @@ public class Main {
     }
 
 
+    public static void declareWinner(Player player1, Player player2)
+    {
+        System.out.println("Game over! \n");
+        if (player1.playerScore >= 3)
+        {
+            System.out.println(player1.name + " won the game!");
+        }
+        else
+        {
+            System.out.println(player1.name + " won the game!");
+        }
+    }
+
+
     public static void main(String[] args) {
 
         Player tester = new Player("Matt");
@@ -77,13 +91,7 @@ public class Main {
             System.out.println("\n Press enter for next round \n");
             String pass = sc.nextLine();
         }
-
-        //declare WInner
-
-
-
-
-
+        declareWinner(tester, tester2);
     }
 
 }
