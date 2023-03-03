@@ -3,17 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    static void runGame()
-    {
-        int round = 0;
-        int numberOfRounds = 3;
 
-        while (round < numberOfRounds)
-        {
-            round += 1;
-            System.out.println("One iteration");
-        }
-    };
 
 
 //could instantiate as many players as the user wants, and ask/apply the names
@@ -36,36 +26,59 @@ public class Main {
     {
         if (player1.pairs > player2.pairs)
         {
-            System.out.println("PLAYER 1 WINS");
+            System.out.println("PLAYER 1 WINS \n");
+            player1.playerScore += 1;
         }
         else if (player1.pairs == player2.pairs)
         {
-            System.out.println("TIE");
+            System.out.println("TIE \n");
         }
         else
         {
-            System.out.println("PLAYER 2 WINS");
+            System.out.println("PLAYER 2 WINS \n");
+            player2.playerScore += 1;
         }
     }
 
 
-    public static void main(String[] args) {
 
+    public static List<Card> shuffle()
+    {
         List<Card> deck = new ArrayList<Card>();
         makeDeck(deck, "Spades");
         makeDeck(deck, "Hearts");
         makeDeck(deck, "Diamonds");
         makeDeck(deck, "Clubs");
+        return deck;
+    }
 
-        Player tester = new Player("Player 1", deck);
-        Player tester2 = new Player("Player 2", deck);
+    public static void main(String[] args) {
+
+
+        Player tester = new Player("Player 1");
+        Player tester2 = new Player("Player 2");
+
+
+        List<Card> deck = shuffle(); //Creates a new deck
+
+
+        tester.dealHand(deck); //deals cards to players removing a Card from the deck when dealt
+        tester2.dealHand(deck);
 
         tester.checkForPairs();
         tester2.checkForPairs();
+
+
 //        System.out.println(tester.pairs); can access a player's pairs through its memvar now
-
-        comparePairs(tester, tester2);
-
+//        int round = 0;
+//        int numberOfRounds = 3;
+//
+//        while (player1 < numberOfRounds)
+//        {
+//            round += runGame();
+////            System.out.println("One iteration");
+//        }
+        
     }
 
 }

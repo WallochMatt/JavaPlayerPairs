@@ -6,13 +6,13 @@ public class Player {
     public String name;
     public List<Card> hand;
     public int pairs;
+    public int playerScore;
 
-    public Player(String name, List<Card> deck) {
+    public Player(String name) {
         this.name = name;
-        this.hand = dealHand(deck);
     }
 
-    public List<Card> dealHand(List<Card> deck) {
+    public void dealHand(List<Card> deck) {
         List<Card> handInMaking = new ArrayList<Card>();
         int numberOfCards = deck.size();
         for (int i = 0; i < 5; i++) {
@@ -21,7 +21,7 @@ public class Player {
             deck.remove(deck.get(rnd));
             numberOfCards -= 1;
         }
-        return handInMaking;
+        this.hand = handInMaking;
     }
 
     public void checkForPairs()
