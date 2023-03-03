@@ -1,13 +1,11 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
-
-
 //could instantiate as many players as the user wants, and ask/apply the names
-
 
     public static  void makeDeck(List<Card> deck, String currentSuit)
     {
@@ -26,7 +24,7 @@ public class Main {
     {
         if (player1.pairs > player2.pairs)
         {
-            System.out.println("PLAYER 1 WINS \n");
+            System.out.println(player1.name + " won the round \n");
             player1.playerScore += 1;
         }
         else if (player1.pairs == player2.pairs)
@@ -35,7 +33,7 @@ public class Main {
         }
         else
         {
-            System.out.println("PLAYER 2 WINS \n");
+            System.out.println(player2.name + " won the round \n");
             player2.playerScore += 1;
         }
     }
@@ -52,33 +50,40 @@ public class Main {
         return deck;
     }
 
-    public static void main(String[] args) {
 
-
-        Player tester = new Player("Player 1");
-        Player tester2 = new Player("Player 2");
-
-
+    public static void runGame(Player player1, Player player2)
+    {
         List<Card> deck = shuffle(); //Creates a new deck
 
+        player1.dealHand(deck); //deals cards to players removing a Card from the deck when dealt
+        player2.dealHand(deck); //consider adding a way to deal one card at a time to avoid player 2 bias
 
-        tester.dealHand(deck); //deals cards to players removing a Card from the deck when dealt
-        tester2.dealHand(deck);
+        player1.checkForPairs();
+        player2.checkForPairs();
 
-        tester.checkForPairs();
-        tester2.checkForPairs();
+        comparePairs(player1, player2);
+    }
 
 
-//        System.out.println(tester.pairs); can access a player's pairs through its memvar now
-//        int round = 0;
-//        int numberOfRounds = 3;
-//
-//        while (player1 < numberOfRounds)
-//        {
-//            round += runGame();
-////            System.out.println("One iteration");
-//        }
-        
+    public static void main(String[] args) {
+
+        Player tester = new Player("Matt");
+        Player tester2 = new Player("Chris");
+
+        while (tester.playerScore < 3 && tester2.playerScore < 3) // first player to 3 wins
+        {
+            runGame(tester, tester2);
+            Scanner sc = new Scanner(System.in);
+            System.out.println("\n Press enter for next round \n");
+            String pass = sc.nextLine();
+        }
+
+        //declare WInner
+
+
+
+
+
     }
 
 }

@@ -3,6 +3,7 @@ package org.example;
 import java.util.*;
 
 public class Player {
+
     public String name;
     public List<Card> hand;
     public int pairs;
@@ -40,7 +41,5 @@ public class Player {
 
         System.out.println(pairs + " Pairs Found! \n");
     }
-
-    //compare pairs function here
 
 }
