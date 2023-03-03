@@ -32,6 +32,23 @@ public class Main {
     }
 
 
+    public static void comparePairs(Player player1, Player player2)
+    {
+        if (player1.pairs > player2.pairs)
+        {
+            System.out.println("PLAYER 1 WINS");
+        }
+        else if (player1.pairs == player2.pairs)
+        {
+            System.out.println("TIE");
+        }
+        else
+        {
+            System.out.println("PLAYER 2 WINS");
+        }
+    }
+
+
     public static void main(String[] args) {
 
         List<Card> deck = new ArrayList<Card>();
@@ -44,8 +61,10 @@ public class Main {
         Player tester2 = new Player("Player 2", deck);
 
         tester.checkForPairs();
-//        tester2.checkForPairs();
+        tester2.checkForPairs();
 //        System.out.println(tester.pairs); can access a player's pairs through its memvar now
+
+        comparePairs(tester, tester2);
 
     }
 

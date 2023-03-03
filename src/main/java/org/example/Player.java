@@ -38,7 +38,7 @@ public class Player {
         int totalCopies = (int) copies.stream().distinct().count();
         pairs = pairCount - totalCopies;
 
-        System.out.println(pairs + " Pairs Found!");
+        System.out.println(pairs + " Pairs Found! \n");
     }
 
     //compare pairs function here
