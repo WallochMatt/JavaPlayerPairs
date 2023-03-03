@@ -3,12 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    //create
     static void runGame()
     {
         int round = 0;
         int numberOfRounds = 3;
-//        int[] playerCount = countsPlayers();
 
         while (round < numberOfRounds)
         {
@@ -17,13 +15,8 @@ public class Main {
         }
     };
 
-//    static int[] countsPlayers()
-//    {
-//        int amountOfPlayers = 3;
-//        int[] players = [];
-//
-//    }; could instantiate as many players as the user wants, and ask/apply the names
 
+//could instantiate as many players as the user wants, and ask/apply the names
 
 
     public static  void makeDeck(List<Card> deck, String currentSuit)
@@ -36,13 +29,10 @@ public class Main {
         deck.add(new Card(currentSuit, "Queen"));
         deck.add(new Card(currentSuit, "King"));
         deck.add(new Card(currentSuit, "Ace"));
-
     }
 
 
     public static void main(String[] args) {
-        //call
-        //runGame();
 
         List<Card> deck = new ArrayList<Card>();
         makeDeck(deck, "Spades");
@@ -50,8 +40,8 @@ public class Main {
         makeDeck(deck, "Diamonds");
         makeDeck(deck, "Clubs");
 
-        Player tester = new Player("p1", deck);
-        Player tester2 = new Player("p2", deck);
+        Player tester = new Player("Player 1", deck);
+        Player tester2 = new Player("Player 2", deck);
 
         tester.checkForPairs();
 //        tester2.checkForPairs();
